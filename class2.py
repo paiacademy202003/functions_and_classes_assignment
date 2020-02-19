@@ -50,10 +50,22 @@ class TrendLine:
 
 if __name__ == '__main__':
     """
-    Create and run test cases here if you wish. There is a jupyter notebook that was created also that once you have
-    finished writing this class, you should be able to run the cells and visualize the trendline created from this
-    code. The notebook is called TrendLine_Test.ipynb. 
+    Below is a test case you can use to see if your TrendLine class is working properly. Similarly to the functions test cases, do
+    not tailor your class to this specific test case. It should work properly for any given input given that the input is in
+    the correct form. There is a jupyter notebook that was created also that once you have finished writing this class, you
+    should be able to run the cells and visualize the trendline created from this code. The notebook is called TrendLine_Test.ipynb.
     """
-    #########CREATE TEST CASES HERE###########
-    pass
-    ##########END TEST CASES##################
+    model = TrendLine()
+    points = [[1,1],[1,3],[3,4],[3,1],[4,3],[6,4]]
+    X = [x[0] for x in points]
+    y = [x[1] for x in points]
+    model.fit(X,y)
+    print('m', model.m)
+    print('should be 0.3888')
+    print()
+    print('b', model.b)
+    print('should be 1.5')
+    print()
+    score = model.score(X,y)
+    print('score', score)
+    print('should be 0.2916333')

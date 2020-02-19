@@ -73,11 +73,29 @@ class Cafe:
 
 if __name__ == '__main__':
     """
-    You are encouraged to create some test cases here to see if the methods in your class work as expected. The if __name__ == '__main__'
-    notation means that the code under this clause will only be run if the program is called explicitly (i.e. by running python class1.py).
-    It will not be run by importing this file to another program. An example of a Cafe instance is given here. This part is not graded though.
+    Below is a test case you can use to see if your cafe class is working properly. Similarly to the functions test cases, do
+    not tailor your class to this specific test case. It should work properly for any given input given that the input is in
+    the correct form.
     """
     sbux = Cafe({'coffee':2,'mocha':3,'bagel':2.5}, {'coffee':10, 'mocha':5, 'bagel':7, 'tea':20})
-    #########CREATE TEST CASES HERE###########
-    pass
-    ##########END TEST CASES##################
+    print('menu before', sbux.menu)
+    sbux.add_menu_item('sandwich',7)
+    print('menu after', sbux.menu)
+    print("should be {'coffee': 2, 'mocha': 3, 'bagel': 2.5, 'sandwich': 7}")
+    print()
+    print('stock before', sbux.stock)
+    sbux.add_stock({'coffee':1})
+    print('stock after', sbux.stock)
+    print("should be {'coffee': 11, 'mocha': 5, 'bagel': 7, 'tea': 20}")
+    print()
+    price = sbux.order_cost({'mocha':3,'bagel':3})
+    print('price of 3 mochas and 3 bagels', price)
+    print("should be 16.5")
+    print()
+    order = sbux.place_order({'mocha':3,'bagel':3})
+    print('stock after order', sbux.stock)
+    print('money after order', sbux.money)
+    print('order', order)
+    print("Stock should be {'coffee': 11, 'mocha': 2, 'bagel': 4, 'tea': 20}")
+    print("Money should be 16.5")
+    print("Order should be True")
